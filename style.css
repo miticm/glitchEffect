@@ -1,0 +1,87 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;600;700&display=swap");
+
+body {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #f8f005;
+}
+
+button,
+button::after {
+  cursor: pointer;
+  width: 440px;
+  height: 86px;
+  font-size: 36px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  background: linear-gradient(45deg, transparent 5%, red 5%);
+  color: white;
+  border: 0;
+  letter-spacing: 3px;
+  line-height: 86px;
+  outline: transparent;
+  box-shadow: 6px 0 #00e6f6;
+  position: relative;
+}
+
+button::after {
+  --s0: inset(50% 50% 50% 50%);
+  --s1: inset(70% -6px 0 0);
+  --s2: inset(50% -6px 40% 0px);
+  --s3: inset(10% -6px 85% 0);
+  --s4: inset(5% -6px 90% 0);
+  content: "CYBERPUNK 2077";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, transparent 3%, #00e6f6 3% 5%, red 5%);
+  text-shadow: 3px 3px #00e6f6, -3px -3px #f8f005;
+  clip-path: var(--s0);
+}
+
+button:hover::after {
+  animation: 1s glitch;
+  animation-timing-function: steps(4, end);
+}
+
+@keyframes glitch {
+  0% {
+    clip-path: var(--s1);
+    transform: translate(-5px, 10px);
+  }
+
+  16% {
+    clip-path: var(--s3);
+    transform: translate(5px, 10px);
+  }
+
+  32% {
+    clip-path: var(--s4);
+    transform: translate(20px, 0px);
+  }
+
+  48% {
+    clip-path: var(--s2);
+    transform: translate(-8px, 9px);
+  }
+
+  64% {
+    clip-path: var(--s4);
+    transform: translate(-6px, -10px);
+  }
+
+  80% {
+    clip-path: var(--s1);
+    transform: translate(5px, 3px);
+  }
+
+  100% {
+    clip-path: var(--s0);
+  }
+}
